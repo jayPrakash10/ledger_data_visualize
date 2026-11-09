@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Design tokens (RGB triplets so Tailwind alpha works) ---------- */
+:root {
+  --bg: 247 245 240;
+  --surface: 255 255 255;
+  --subtle: 240 237 230;
+  --line: 226 222 213;
+  --ink: 20 35 58;
+  --muted: 91 107 127;
+  --primary: 15 118 110;
+  --primary-ink: 255 255 255;
+  --primary-soft: 218 241 237;
+  --success: 31 122 77;
+  --warning: 154 91 0;
+  --danger: 180 35 24;
+  --chart-a: 15 118 110;
+  --chart-b: 217 119 6;
+
+  --cat-1: 59 110 165;
+  --cat-2: 46 157 122;
+  --cat-3: 224 138 60;
+  --cat-4: 124 92 191;
+  --cat-5: 201 162 39;
+  --cat-6: 217 83 79;
+  --cat-7: 214 96 154;
+  --cat-8: 79 163 199;
+  --cat-9: 138 154 59;
+  --cat-10: 140 106 82;
+
+  --shadow-card: 0 1px 2px rgb(20 35 58 / 0.05), 0 6px 20px rgb(20 35 58 / 0.05);
+  --shadow-pop: 0 8px 30px rgb(20 35 58 / 0.14);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: 12 22 32;
+  --surface: 19 33 47;
+  --subtle: 26 43 60;
+  --line: 38 58 78;
+  --ink: 232 238 244;
+  --muted: 159 176 192;
+  --primary: 45 212 191;
+  --primary-ink: 6 32 29;
+  --primary-soft: 18 62 62;
+  --success: 95 211 154;
+  --warning: 245 184 75;
+  --danger: 255 138 128;
+  --chart-a: 45 212 191;
+  --chart-b: 245 184 75;
+
+  --cat-1: 110 160 215;
+  --cat-2: 80 200 160;
+  --cat-3: 240 160 90;
+  --cat-4: 165 140 225;
+  --cat-5: 225 190 70;
+  --cat-6: 240 120 115;
+  --cat-7: 235 130 180;
+  --cat-8: 110 190 225;
+  --cat-9: 175 190 90;
+  --cat-10: 190 150 120;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 6px 20px rgb(0 0 0 / 0.25);
+  --shadow-pop: 0 8px 30px rgb(0 0 0 / 0.5);
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-bg;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-ink;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
